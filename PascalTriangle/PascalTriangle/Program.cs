@@ -28,13 +28,14 @@ namespace PascalTriangle
 
         void GeneratePascalTriangle(int n)
         {
+            // you could also create a 2d array to store triangle for future use, but this seemed better for what is needed.
             int[] _previous = new int[n];
             int[] _current = new int[n];
-            for(int i = 0; i < n; i++)
+            for(int i = 0; i < n; i++) // for each line
             {
-                for(int j = 0; j <= i; j++)
+                for(int j = 0; j <= i; j++) // for each element
                 {
-                    if (j == 0 || j == i)
+                    if (j == 0 || j == i) // first and last are always 1, prevents index error in else condition
                         _current[j] = 1;
                     else
                         _current[j] = _previous[j-1] + _previous[j];
